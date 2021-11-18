@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This package is just a wrapper around `logging` and `colorlog`.
+This package is just a wrapper around [logging](https://docs.python.org/3/library/logging.html) and [colorlog](https://github.com/borntyping/python-colorlog).
 
 ## Installation
 
