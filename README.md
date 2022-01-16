@@ -12,31 +12,36 @@ pip install lokilogger
 
 ## Usage
 
-Init LokiLogging.
+At the start of your program
 
 ```python
-logging = LokiLogging()
+from lokilogger.logging import setLogMode
+import logging
+env = os.getenv("LOGMODE", "DEV")
+setLogMode("env") # A global setting here, you can set it to `PROD`, `DEV`or `DEV_NO_COLOR`
 ```
 
-Set multiple loggers.
+Use it in other modules
 
 ```python
-logger1 = logging.setLogger("testlogger1")
-
-DEFAULT_FORMATTER = '"severity": "%(levelname)s", , "message": "%(message)s"'
-
-# Set logger with custom formatter
-logger2 = logging.setLogger("testlogger2",DEFAULT_FORMATTER)
+logger = logging.getLogger(__name__)
+logger.error('error message')
 ```
 
-Disable color.
+Output
 
-```python
-logging.disableColor("testlogger1")
+env=Prod
+
+```shell
+"time": "2022-01-15 07:56:05,440, ""severity": "INFO", "logger": "root","module": "logging", "message": "Dev env is set to production"
+"time": "2022-01-15 07:56:05,440, ""severity": "ERROR", "logger": "__main__","module": "test", "message": "error message"
+"time": "2022-01-15 07:56:05,440, ""severity": "INFO", "logger": "root","module": "test", "message": "error message"
 ```
 
-Enable color.
+env=DEV_NO_COLOR
 
-```python
-logging.enableColor("testlogger1")
+```shell
+2022-01-15 07:54:40,039 | INFO | root | Dev env is set to development without colorlog
+2022-01-15 07:54:40,039 | ERROR | __main__ | error message
+2022-01-15 07:54:40,039 | INFO | root | error message
 ```

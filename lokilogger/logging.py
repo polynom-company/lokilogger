@@ -1,7 +1,12 @@
 import logging
 import pkg_resources
 
-def setLogMode(mode:str):
+def set_log_mode(mode:str):
+    """Set logging mode
+
+    Args:
+        mode (str): PROD, DEV or DEV_NO_COLOR
+    """
     path = "config.ini"
     filepath = pkg_resources.resource_filename(__name__, path)
     logging.config.fileConfig(filepath)
