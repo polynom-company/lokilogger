@@ -1,6 +1,6 @@
-from lokilogger.logging import setLogMode
+from lokilogger.logging import set_log_mode
 import logging
 
-setLogMode("DEV")
+set_log_mode("DEV")
 logger = logging.getLogger(__name__)
 logger.error('error message')
