@@ -17,6 +17,7 @@ At the start of your program
 ```python
 from lokilogger.logging import set_log_mode
 import logging
+
 env = os.getenv("LOGMODE", "DEV")
 set_log_mode("env") # A global setting here, you can set it to `PROD`, `DEV`or `DEV_NO_COLOR`
 ```
