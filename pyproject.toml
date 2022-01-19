@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "lokilogger"
-version = "1.0.2"
+version = "1.0.3"
 description = "This a custom `logging` for `Loki`"
 authors = ["kangyili", "fbossiere"]
 readme = "README.md"
